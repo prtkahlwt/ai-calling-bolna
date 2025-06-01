@@ -6,17 +6,17 @@ import Settings from "./settings";
 import Calling from "./Calling";
 import DashboardSection from "./dashboard";
 import AddDetails from "./addDetails";
-import ExcelUploader from "./addDetails";
+// import ExcelUploader from "./addDetails";
 
-interface DataRow {
-  id: number;
-  name: string;
-  mobile: string;
-  time: number; 
-  response: "Positive" | "Negative";
-  audioUrl: string; 
-  summary: string;
-}
+// interface DataRow {
+//   id: number;
+//   name: string;
+//   mobile: string;
+//   time: number; 
+//   response: "Positive" | "Negative";
+//   audioUrl: string; 
+//   summary: string;
+// }
 
 const sidebarItems = [
   { label: "Home", value: "home" },
@@ -70,7 +70,7 @@ export default function Dashboard() {
             {sidebarItems.map((item) => (
               <button
                 key={item.value}
-                onClick={() => setCurrentPage(item.value as any)}
+                onClick={() => setCurrentPage(item.value as "Calling Details" | "Add Details" | "settings" | "Dashboard")}
                 className={`rounded px-3 py-2 text-left hover:bg-gray-100 ${
                   currentPage === item.value ? "bg-gray-200 font-semibold" : ""
                 }`}
@@ -106,7 +106,7 @@ export default function Dashboard() {
                   <button
                     key={item.value}
                     onClick={() => {
-                      setCurrentPage(item.value as any);
+                      setCurrentPage(item.value as "Calling Details" | "Add Details" | "settings" | "Dashboard");
                       setSidebarOpen(false);
                     }}
                     className={`rounded px-3 py-2 text-left hover:bg-gray-100 ${
