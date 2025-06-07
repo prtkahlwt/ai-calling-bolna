@@ -3,13 +3,14 @@ import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
-// Navbar and Footer imports are removed as they are in layout.tsx
+import ContactButtons from "@/components/ui/ContactButtons";
 
 export default function HomePage() {
   return (
     <div className="flex flex-col items-center bg-background text-foreground font-[var(--font-geist-sans)]">
-      {/* Hero Section */}
-      <section className="relative w-full py-20 text-center md:py-32 overflow-hidden px-4">
+      
+      {/* Hero Section - ID for "Home" link */}
+      <section id="home" className="relative w-full py-20 text-center md:py-32 overflow-hidden px-4">
         <div className="container mx-auto max-w-4xl z-10 relative">
           <h1 className="text-4xl md:text-6xl font-bold leading-tight mb-6">
             Smart AI Solutions <span className="text-primary">Specialised in AI Calling</span>
@@ -19,112 +20,102 @@ export default function HomePage() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/signup" passHref>
-              <Button size="lg" className="px-8 py-6 text-lg"> {/* This button should remain primary/dark */}
+              <Button size="lg" className="px-8 py-6 text-lg">
                 Get Started for Free
               </Button>
             </Link>
-            <Link href="#features" passHref>
+            <Link href="/#solutions" passHref>
               <Button size="lg" variant="outline" className="px-8 py-6 text-lg">
                 Learn More
               </Button>
             </Link>
           </div>
         </div>
-        {/* Optional: Add a subtle background image or pattern.
-            If you want to use an image, save it in `public/images/ai-pattern.svg` (or similar)
-            and uncomment the block below. Ensure the path is correct.
-        */}
-        {/*
-        <div className="absolute inset-0 z-0 opacity-5">
-            <Image
-              src="/images/ai-pattern.svg" // Replace with your actual AI-themed pattern or illustration
-              alt="AI background pattern"
-              layout="fill"
-              objectFit="cover"
-              className="dark:invert"
-              priority // For hero section background image
-            />
-        </div>
-        */}
       </section>
 
-      {/* Features Section */}
-      <section id="features" className="w-full py-16 bg-muted text-center px-4">
-        <div className="container mx-auto max-w-6xl">
-          <h2 className="text-3xl md:text-4xl font-bold mb-12">Powerful Features Designed for Growth</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {/* Feature Card 1: Intelligent AI Agents */}
-            <Card className="text-left">
-              <CardHeader>
-                <CardTitle>Cold Calling</CardTitle>
-              </CardHeader>
-              <CardContent>
-                Our AI agents understand nuances, respond dynamically, and handle complex conversations like humans.
-              </CardContent>
-            </Card>
-            {/* Feature Card 2: Customizable Call Scripts */}
-            <Card className="text-left">
-              <CardHeader>
-                <CardTitle>Customizable Call Scripts</CardTitle>
-              </CardHeader>
-              <CardContent>
-                Design specific call flows and scripts tailored to your campaign goals and brand voice.
-              </CardContent>
-            </Card>
-            {/* Feature Card 3: Real-time Analytics */}
-            <Card className="text-left">
-              <CardHeader>
-                <CardTitle>Real-time Analytics</CardTitle>
-              </CardHeader>
-              <CardContent>
-                Gain insights into call outcomes, agent performance, and customer sentiment with detailed reports.
-              </CardContent>
-            </Card>
-            {/* Feature Card 4: Seamless CRM Integration */}
-            <Card className="text-left">
-              <CardHeader>
-                <CardTitle>Seamless CRM Integration</CardTitle>
-              </CardHeader>
-              <CardContent>
-                Connect with your existing CRM to streamline data flow and enhance customer profiles.
-              </CardContent>
-            </Card>
-            {/* Feature Card 5: Scalable & Cost-Effective */}
-            <Card className="text-left">
-              <CardHeader>
-                <CardTitle>Scalable & Cost-Effective</CardTitle>
-              </CardHeader>
-              <CardContent>
-                Handle millions of calls without increasing headcount, reducing operational costs significantly.
-              </CardContent>
-            </Card>
-            {/* Feature Card 6: Multi-language Support */}
-            <Card className="text-left">
-              <CardHeader>
-                <CardTitle>Multi-language Support</CardTitle>
-              </CardHeader>
-              <CardContent>
-                Expand your reach globally with AI agents capable of speaking multiple languages fluently.
-              </CardContent>
-            </Card>
+      {/* Solutions Section - Renamed from "features" */}
+            {/* Solutions Section - Updated with crisp, data-driven cards */}
+      <section id="solutions" className="w-full py-16 bg-muted px-4">
+        <div className="container mx-auto max-w-7xl">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold">One Platform, Endless Solutions</h2>
+            <p className="text-lg text-muted-foreground mt-4 max-w-3xl mx-auto">
+              From boosting sales to streamlining operations, our AI agents are designed to handle any calling task at scale.
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            {[
+              {
+                title: "Cold Calling",
+                description: "Automate high-volume cold calling with tireless AI agents that scale your outreach without growing your team.",
+              },
+              {
+                title: "Feedback & Surveys",
+                description: "Deploy AI to automatically conduct post-service surveys and gather valuable customer feedback with zero manual effort.",
+              },
+              {
+                title: "Marketing & Promotion",
+                description: "Launch dynamic, omnichannel campaigns across voice, WhatsApp, and Email to announce new products and promotions instantly.",
+              },
+              {
+                title: "Instant Lead Engagement",
+                description: "Instantly call prospects the moment they submit a web form, engaging them while interest is highest to boost conversions.",
+              },
+              {
+                title: "24/7 Customer Support",
+                description: "Offer 24/7 customer support without the high cost of a live call center, providing instant answers to common questions.",
+              },
+              {
+                title: "Appointment Scheduling",
+                description: "Automate the entire booking process, from scheduling to confirmations, integrating with your calendars to eliminate conflicts.",
+              },
+              {
+                title: "Hiring Automation",
+                description: "Accelerate your hiring with AI-powered screening calls and video interviews to shortlist the best candidates in record time.",
+              },
+              {
+                title: "Reminders & Confirmations",
+                description: "Reduce no-shows and operational costs with automated reminders for appointments, payments, and address confirmations.",
+              },
+            ].map((solution) => (
+              <Card key={solution.title} className="text-left text-lg">
+                <CardHeader>
+                  <CardTitle>{solution.title}</CardTitle>
+                </CardHeader>
+                <CardContent className="text-muted-foreground text-sm">
+                  <p>{solution.description}</p>
+                </CardContent>
+              </Card>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Call to Action Section */}
-      <section className="w-full py-16 text-center px-4">
+      {/* NEW: About Section */}
+      <section id="about" className="w-full py-20 text-center px-4">
+        <div className="container mx-auto max-w-4xl">
+          <h2 className="text-3xl md:text-4xl font-bold mb-6">About Small.ai</h2>
+          <p className="text-lg text-muted-foreground">
+            We are a team of innovators dedicated to pushing the boundaries of artificial intelligence in communication. Our mission is to provide businesses with powerful, scalable, and intuitive AI calling solutions that drive growth and enhance customer engagement.
+          </p>
+        </div>
+      </section>
+
+       {/* Contact Section - Updated with new buttons */}
+      <section id="contact" className="w-full py-20 bg-muted text-center px-4">
         <div className="container mx-auto max-w-4xl">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">Ready to Transform Your Calling Operations?</h2>
           <p className="text-lg text-muted-foreground mb-8">
-            Join businesses revolutionizing their customer engagement with AI.
+            Book a demo today and see how our AI can revolutionize your business.
           </p>
-          <Link href="/signup" passHref>
-            <Button size="lg" className="px-8 py-6 text-lg">
-              Sign Up Now
-            </Button>
-          </Link>
+          
+          {/* 2. Replace the old button with the new component */}
+          <ContactButtons />
+
         </div>
       </section>
+      
     </div>
   );
 }

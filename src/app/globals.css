@@ -5,6 +5,15 @@
 
 
 @layer base {
+  html {
+    @apply scroll-smooth; /* Or you can write scroll-behavior: smooth; */
+  }
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
   :root {
 
     --background: 0 0% 100%;
@@ -116,6 +125,9 @@
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground; 
+  }
+  body::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, and Opera */
   }
 }
