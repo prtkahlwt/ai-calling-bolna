@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
+import ContactButtons from "@/components/ui/ContactButtons";
 
 export default function HomePage() {
   return (
@@ -101,18 +102,17 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* NEW: Contact Section */}
+       {/* Contact Section - Updated with new buttons */}
       <section id="contact" className="w-full py-20 bg-muted text-center px-4">
         <div className="container mx-auto max-w-4xl">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">Ready to Transform Your Calling Operations?</h2>
           <p className="text-lg text-muted-foreground mb-8">
             Book a demo today and see how our AI can revolutionize your business.
           </p>
-          <Link href="/signup" passHref>
-            <Button size="lg" className="px-8 py-6 text-lg">
-              Sign Up and Book a Demo
-            </Button>
-          </Link>
+          
+          {/* 2. Replace the old button with the new component */}
+          <ContactButtons />
+
         </div>
       </section>
       
