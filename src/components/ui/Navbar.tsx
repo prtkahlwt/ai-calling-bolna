@@ -37,7 +37,10 @@ export default function Navbar() {
 
       {/* Action Button - updated to "Book a Demo" */}
       <div className="flex items-center space-x-4 flex-shrink-0">
-        <Link href="/#contact" passHref>
+        <Link         
+        href="https://calendly.com/ap2303898" // <-- IMPORTANT: Replace with your actual Calendly link
+        target="_blank"
+        rel="noopener noreferrer" passHref>
           <Button
             className="rounded-full px-6 py-3 border border-input bg-primary text-primary-foreground shadow-sm hover:bg-primary/90 text-lg"
           >
