@@ -11,9 +11,9 @@ export default function Footer() {
           <Link href="/login" passHref>
             <span className="hover:underline cursor-pointer">Login</span>
           </Link>
-          <Link href="/signup" passHref>
+          {/* <Link href="/signup" passHref>
             <span className="hover:underline cursor-pointer">Sign Up</span>
-          </Link>
+          </Link> */}
           <Link href="/dashboard" passHref>
             <span className="hover:underline cursor-pointer">Dashboard (Demo)</span>
           </Link>
