@@ -33,34 +33,60 @@ export default function HomePage() {
       </section>
 
       {/* Solutions Section - Renamed from "features" */}
-      <section id="solutions" className="w-full py-16 bg-muted text-center px-4">
-        <div className="container mx-auto max-w-6xl">
-          <h2 className="text-3xl md:text-4xl font-bold mb-12">Our Solutions</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <Card className="text-left">
-              <CardHeader><CardTitle>Cold Calling</CardTitle></CardHeader>
-              <CardContent>Our AI agents understand nuances, respond dynamically, and handle complex conversations like humans.</CardContent>
-            </Card>
-            <Card className="text-left">
-              <CardHeader><CardTitle>Customizable Call Scripts</CardTitle></CardHeader>
-              <CardContent>Design specific call flows and scripts tailored to your campaign goals and brand voice.</CardContent>
-            </Card>
-            <Card className="text-left">
-              <CardHeader><CardTitle>Real-time Analytics</CardTitle></CardHeader>
-              <CardContent>Gain insights into call outcomes, agent performance, and customer sentiment with detailed reports.</CardContent>
-            </Card>
-            <Card className="text-left">
-              <CardHeader><CardTitle>Seamless CRM Integration</CardTitle></CardHeader>
-              <CardContent>Connect with your existing CRM to streamline data flow and enhance customer profiles.</CardContent>
-            </Card>
-            <Card className="text-left">
-              <CardHeader><CardTitle>Scalable & Cost-Effective</CardTitle></CardHeader>
-              <CardContent>Handle millions of calls without increasing headcount, reducing operational costs significantly.</CardContent>
-            </Card>
-            <Card className="text-left">
-              <CardHeader><CardTitle>Multi-language Support</CardTitle></CardHeader>
-              <CardContent>Expand your reach globally with AI agents capable of speaking multiple languages fluently.</CardContent>
-            </Card>
+            {/* Solutions Section - Updated with crisp, data-driven cards */}
+      <section id="solutions" className="w-full py-16 bg-muted px-4">
+        <div className="container mx-auto max-w-7xl">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold">One Platform, Endless Solutions</h2>
+            <p className="text-lg text-muted-foreground mt-4 max-w-3xl mx-auto">
+              From boosting sales to streamlining operations, our AI agents are designed to handle any calling task at scale.
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            {[
+              {
+                title: "Cold Calling",
+                description: "Automate high-volume cold calling with tireless AI agents that scale your outreach without growing your team.",
+              },
+              {
+                title: "Feedback & Surveys",
+                description: "Deploy AI to automatically conduct post-service surveys and gather valuable customer feedback with zero manual effort.",
+              },
+              {
+                title: "Marketing & Promotion",
+                description: "Launch dynamic, omnichannel campaigns across voice, WhatsApp, and Email to announce new products and promotions instantly.",
+              },
+              {
+                title: "Instant Lead Engagement",
+                description: "Instantly call prospects the moment they submit a web form, engaging them while interest is highest to boost conversions.",
+              },
+              {
+                title: "24/7 Customer Support",
+                description: "Offer 24/7 customer support without the high cost of a live call center, providing instant answers to common questions.",
+              },
+              {
+                title: "Appointment Scheduling",
+                description: "Automate the entire booking process, from scheduling to confirmations, integrating with your calendars to eliminate conflicts.",
+              },
+              {
+                title: "Hiring Automation",
+                description: "Accelerate your hiring with AI-powered screening calls and video interviews to shortlist the best candidates in record time.",
+              },
+              {
+                title: "Reminders & Confirmations",
+                description: "Reduce no-shows and operational costs with automated reminders for appointments, payments, and address confirmations.",
+              },
+            ].map((solution) => (
+              <Card key={solution.title} className="text-left text-lg">
+                <CardHeader>
+                  <CardTitle>{solution.title}</CardTitle>
+                </CardHeader>
+                <CardContent className="text-muted-foreground text-sm">
+                  <p>{solution.description}</p>
+                </CardContent>
+              </Card>
+            ))}
           </div>
         </div>
       </section>
