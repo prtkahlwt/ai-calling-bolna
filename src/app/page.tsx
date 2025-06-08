@@ -19,7 +19,11 @@ export default function HomePage() {
             Leverage intelligent AI agents to handle sales, support, and surveys efficiently, 24/7, at scale.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/signup" passHref>
+            <Link
+              href="https://calendly.com/ap2303898" // <-- IMPORTANT: Replace with your actual Calendly link
+              target="_blank"
+              rel="noopener noreferrer"
+              passHref>
               <Button size="lg" className="px-8 py-6 text-lg">
                 Get Started for Free
               </Button>
