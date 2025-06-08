@@ -17,7 +17,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Ciyn.ai - AI Calling Solutions", // Updated title
+  title: "Smalls.ai - AI Calling Solutions", // Updated title
   description: "Automate your customer outreach with intelligent AI calling agents.", // Updated description
 };
 
