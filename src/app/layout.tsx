@@ -5,6 +5,7 @@ import "./globals.css";
 import Navbar from "@/components/ui/Navbar"; // Import Navbar
 import Footer from "@/components/ui/Footer"; // Import Footer
 import Chatbot from "./chatbot";
+import { Providers } from "./providers";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -31,12 +32,14 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased flex flex-col min-h-screen`}
       >
-        <Navbar /> {/* Navbar always visible */}
-        <main className="flex-grow"> {/* Main content expands to fill space */}
-          {children}
-        </main>
-        <Footer /> {/* Footer always visible */}
-        <Chatbot />
+        <Providers>
+          <Navbar /> {/* Navbar always visible */}
+          <main className="flex-grow"> {/* Main content expands to fill space */}
+            {children}
+          </main>
+          <Footer /> {/* Footer always visible */}
+          <Chatbot />
+        </Providers>
       </body>
     </html>
   );

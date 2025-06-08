@@ -2,20 +2,25 @@
 
 import { useForm } from "react-hook-form";
 import { Button } from "@/components/ui/button";
-import {
-  Form,
-  FormControl,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from "@/components/ui/form";
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
+import { useDispatch } from "react-redux";
+
+import { jwtDecode } from "jwt-decode";
+import { setUserDetails } from "@/store/authSlice";
+import { useRouter } from "next/navigation"; // Updated import
+import axios from "axios";
 
 type FormValues = {
   email: string;
   password: string;
 };
+interface DecodedToken {
+  username: string;
+  password: string;
+  agent_id: string;
+  numbers: string[];
+}
 
 export default function LoginPage() {
   const form = useForm<FormValues>({
@@ -25,10 +30,40 @@ export default function LoginPage() {
     },
   });
 
-  function onSubmit(data: FormValues) {
-    alert(`Logging in with\nEmail: ${data.email}\nPassword: ${data.password}`);
-    // TODO: handle login API here
-  }
+  const dispatch = useDispatch();
+  const router = useRouter();
+
+  const onSubmit = async (data: FormValues) => {
+    try {
+      // Send the POST request to the backend for login
+      const response = await axios.post("http://localhost:5000/login", {
+        username: data.email, // Assuming email is the username
+        password: data.password,
+      });
+
+      const token = response.data.token; // Get the JWT token from the response
+
+      // Decode the JWT token
+      const decodedToken: DecodedToken = jwtDecode(token);
+
+      // Dispatch the decoded data to Redux store
+      dispatch(
+        setUserDetails({
+          username: decodedToken.username,
+          password: decodedToken.password,
+          agent_id: decodedToken.agent_id,
+          numbers: decodedToken.numbers,
+        })
+      );
+
+      // Redirect the user after successful login
+      router.push("/dashboard"); // Using the new router
+
+    } catch (error) {
+      console.error("Login failed:", error);
+      alert("Login failed! Please check your credentials and try again.");
+    }
+  };
 
   return (
     <div className="flex min-h-screen items-center justify-center p-4">
