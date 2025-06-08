@@ -1,6 +1,6 @@
 // src/app/page.tsx
-// import Image from "next/image";
-import Link from "next/link";
+import Image from "next/image";
+import Link from "next/link"; 
 import { Button } from "@/components/ui/button";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import ContactButtons from "@/components/ui/ContactButtons";
@@ -8,7 +8,64 @@ import ContactButtons from "@/components/ui/ContactButtons";
 
 export default function HomePage() {
   return (
-      <div className="flex flex-col items-center bg-background text-foreground font-[var(--font-geist-sans)]">
+    <div className="flex flex-col items-center bg-background text-foreground font-[var(--font-geist-sans)]">
+      
+      {/* Hero Section - ID for "Home" link */}
+      <section id="home" className="relative w-full py-20 md:py-32 overflow-hidden px-4">
+        {/*
+          CHANGED:
+          - max-w-4xl changed to max-w-7xl to provide more space for side-by-side content.
+          - Added flex, flex-col (for mobile stacking), md:flex-row (for desktop side-by-side),
+            items-center, justify-between, and gap classes for layout.
+        */}
+        <div className="container mx-auto max-w-7xl z-10 relative flex flex-col md:flex-row items-center justify-between gap-8 md:gap-16">
+          {/* Left side: Text content (Current H1, P, Buttons) */}
+          <div className="text-center md:text-left md:w-1/2"> {/* Added md:text-left and md:w-1/2 for layout */}
+            <h1 className="text-4xl md:text-6xl font-bold leading-tight mb-6">
+              Smart AI Solutions <span className="text-primary">Specialised in AI Calling</span>
+            </h1>
+            <p className="text-lg md:text-xl text-muted-foreground mb-10 max-w-2xl mx-auto md:mx-0"> {/* Added md:mx-0 for text alignment */}
+              Leverage intelligent AI agents to handle sales, support, and surveys efficiently, 24/7, at scale.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start"> {/* Added md:justify-start for button alignment */}
+              <Link
+                href="https://calendly.com/ap2303898" // <-- IMPORTANT: Replace with your actual Calendly link
+                target="_blank"
+                rel="noopener noreferrer"
+                passHref>
+                <Button size="lg" className="px-8 py-6 text-lg">
+                  Get Started for Free
+                </Button>
+              </Link>
+              <Link href="/#solutions" passHref>
+                <Button size="lg" variant="outline" className="px-8 py-6 text-lg">
+                  Learn More
+                </Button>
+              </Link>
+            </div>
+          </div>
+
+          {/* Right side: AI Image */}
+          {/*
+            NEW:
+            - This div takes md:w-1/2 on larger screens.
+            - Uses flex justify-center/md:justify-end to position the image.
+            - Image component with src, alt, width/height for optimization.
+            - `filter grayscale` applies the black and white effect.
+            - `priority` for better loading performance.
+          */}
+          <div className="md:w-1/2 flex justify-center md:justify-end">
+            <Image
+              src="/ai.png" // Path to your image, assuming it's in the public folder
+              alt="Polygonal AI Face"
+              width={600} // Base width for Next.js Image optimization (adjust as needed)
+              height={600} // Base height for Next.js Image optimization (adjust as needed)
+              className="w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl object-contain filter grayscale"
+              priority // Loads this image with high priority as it's above the fold
+            />
+          </div>
+        </div>
+      </section>
 
         {/* Hero Section - ID for "Home" link */}
         <section id="home" className="relative w-full py-20 text-center md:py-32 overflow-hidden px-4">

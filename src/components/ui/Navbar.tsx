@@ -1,7 +1,14 @@
 // src/components/ui/Navbar.tsx
+"use client";
+
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { PhoneCall } from "lucide-react";
+import { useDispatch, useSelector } from "react-redux";
+import { useRouter } from "next/navigation";
+import { logout } from "@/store/authSlice";
+import { RootState } from "@/store";
+import { useEffect, useState } from "react";
 
 // An array to make the navigation items easier to manage
 const navItems = [
@@ -12,9 +19,23 @@ const navItems = [
 ];
 
 export default function Navbar() {
+  const dispatch = useDispatch();
+  const router = useRouter();
+  const [mounted, setMounted] = useState(false);
+  const isAuthenticated = useSelector((state: RootState) => state.auth.username !== null);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  const handleLogout = () => {
+    dispatch(logout());
+    router.push('/login');
+  };
+
   return (
     <nav className="sticky top-0 z-50 w-full bg-background border-b border-border py-4 px-6 flex items-center justify-between shadow-sm">
-      {/* Logo Section (no changes) */}
+      {/* Logo Section */}
       <Link href="/" className="flex items-center space-x-2 flex-shrink-0">
         <PhoneCall className="h-6 w-6 text-brand-blue" />
         <span className="text-2xl font-bold text-foreground">
@@ -22,7 +43,7 @@ export default function Navbar() {
         </span>
       </Link>
 
-      {/* Navigation Links - updated for in-page scrolling */}
+      {/* Navigation Links */}
       <div className="hidden md:flex space-x-8 flex-grow justify-center">
         {navItems.map((item) => (
           <Link
@@ -35,18 +56,33 @@ export default function Navbar() {
         ))}
       </div>
 
-      {/* Action Button - updated to "Book a Demo" */}
+      {/* Action Buttons */}
       <div className="flex items-center space-x-4 flex-shrink-0">
-        <Link         
-        href="https://calendly.com/ap2303898" // <-- IMPORTANT: Replace with your actual Calendly link
-        target="_blank"
-        rel="noopener noreferrer" passHref>
+        {mounted && isAuthenticated ? (
           <Button
-            className="rounded-full px-6 py-3 border border-input bg-primary text-primary-foreground shadow-sm hover:bg-primary/90 text-lg"
+            onClick={handleLogout}
+            variant="outline"
+            className="rounded-full px-6 py-3 text-lg"
           >
-            Book a Demo
+            Logout
           </Button>
-        </Link>
+        ) : (
+          <div className="flex items-center space-x-4">
+            <Button
+              variant="outline"
+              className="rounded-full px-6 py-3 text-lg"
+              onClick={() => router.push('/login')}
+            >
+              Login
+            </Button>
+            <Button
+              className="rounded-full px-6 py-3 border border-input bg-primary text-primary-foreground shadow-sm hover:bg-primary/90 text-lg"
+              onClick={() => window.open('https://calendly.com/ap2303898', '_blank')}
+            >
+              Book a Demo
+            </Button>
+          </div>
+        )}
       </div>
     </nav>
   );

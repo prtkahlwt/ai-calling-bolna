@@ -1,12 +1,14 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { X, List } from "lucide-react";
 import Settings from "./settings";
 import Calling from "./Calling";
 import DashboardSection from "./dashboard";
 import AddDetails from "./addDetails";
-// import ExcelUploader from "./addDetails";
+import { useRouter } from "next/navigation";
+import { useSelector } from "react-redux";
+import { RootState } from "@/store";
 
 // interface DataRow {
 //   id: number;
@@ -26,10 +28,18 @@ const sidebarItems = [
 ];
 
 export default function Dashboard() {
+  const [mounted, setMounted] = useState(false);
   const [sidebarOpen, setSidebarOpen] = useState(false);
-  const [currentPage, setCurrentPage] = useState<"Dashboard" | "Calling Details" |"Add Details" | "settings">(
-    "Dashboard"
-  );
+  const [currentPage, setCurrentPage] = useState<"Dashboard" | "Calling Details" | "Add Details" | "settings">("Dashboard");
+  const router = useRouter();
+  const isAuthenticated = useSelector((state: RootState) => state.auth.username !== null);
+
+  useEffect(() => {
+    setMounted(true);
+    if (!isAuthenticated) {
+      router.push('/login');
+    }
+  }, [isAuthenticated, router]);
 
   // Function to render content based on currentPage state
   function renderContent() {
@@ -46,6 +56,10 @@ export default function Dashboard() {
       default:
         return <DashboardSection />;
     }
+  }
+
+  if (!mounted) {
+    return null; // or a loading spinner
   }
 
   return (

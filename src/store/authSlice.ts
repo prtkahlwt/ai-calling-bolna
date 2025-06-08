@@ -1,4 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import Cookies from 'js-cookie';
 
 // Define a type for your slice's state
 interface AuthState {
@@ -32,6 +33,8 @@ const authSlice = createSlice({
       state.password = null;
       state.agent_id = null;
       state.numbers = null;
+      // Remove the token cookie
+      Cookies.remove('token');
     },
   },
 });

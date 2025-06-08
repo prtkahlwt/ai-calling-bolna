@@ -1,33 +1,41 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { useSelector } from "react-redux";  // Import useSelector to access the Redux store
-import { RootState } from "@/store";  // Adjust if your store is typed
-// import RootState
+import { useSelector } from "react-redux"; // Import useSelector to access the Redux store
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
 import { Eye, EyeOff } from "lucide-react";
 
+// Define AuthState type for Redux state
+interface AuthState {
+  username: string | null;
+  password: string | null;
+  agent_id: string | null;
+  numbers: string[] | null;
+}
+
 export default function Settings() {
   // Get logged-in user details from Redux store
-  const user = useSelector((state: RootState) => state.auth);
+  const user = useSelector((state: { auth: AuthState }) => state.auth);
 
+  // State variables for form fields
   const [passwordVisible, setPasswordVisible] = useState(false);
   const [password, setPassword] = useState(user.password || "");  // Default to user password from store
   const [companyName, setCompanyName] = useState(user.username || "");  // Default to user username
   const [allocatedNumbers, setAllocatedNumbers] = useState(user.numbers || []);  // Default to user allocated numbers
-  const [firstName, setFirstName] = useState(user.username.split(" ")[0] || "");  // Extract first name from username
-  const [lastName, setLastName] = useState(user.username.split(" ")[1] || "");  // Extract last name from username
+  const [firstName, setFirstName] = useState(user.username?.split(" ")[0] || "");  // Extract first name from username
+  const [lastName, setLastName] = useState(user.username?.split(" ")[1] || "");  // Extract last name from username
   const [email, setEmail] = useState(user.username + "@example.com" || "");  // Use email based on user
+  const [agentId] = useState(user.agent_id || "");  // Default to user agent_id (non-editable)
 
   useEffect(() => {
     // If user data changes, update the state
     setPassword(user.password || "");
     setCompanyName(user.username || "");
     setAllocatedNumbers(user.numbers || []);
-    setFirstName(user.username.split(" ")[0] || "");
-    setLastName(user.username.split(" ")[1] || "");
+    setFirstName(user.username?.split(" ")[0] || "");
+    setLastName(user.username?.split(" ")[1] || "");
     setEmail(user.username + "@example.com" || "");
   }, [user]);  // Re-run whenever `user` changes
 
@@ -107,6 +115,18 @@ export default function Settings() {
             className="w-full"
           />
         </div>
+
+        {/* Agent ID - Non-editable */}
+        <div className="max-w-lg">
+          <Label htmlFor="agentId">Agent ID</Label>
+          <Input
+            id="agentId"
+            value={agentId}
+            disabled  // Make it non-editable
+            placeholder="Agent ID (Non-editable)"
+            className="w-full"
+          />
+        </div>
       </div>
 
       {/* Allocated Numbers */}
@@ -122,7 +142,7 @@ export default function Settings() {
             </tr>
           </thead>
           <tbody>
-            {allocatedNumbers.map((number:string, idx:number) => (
+            {allocatedNumbers.map((number: string, idx: number) => (
               <tr key={idx} className={idx % 2 === 0 ? "bg-white" : "bg-gray-50"}>
                 <td className="border border-gray-300 px-4 py-2">{idx + 1}</td>
                 <td className="border border-gray-300 px-4 py-2">{number}</td>
