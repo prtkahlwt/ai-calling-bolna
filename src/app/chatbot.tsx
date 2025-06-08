@@ -1,7 +1,7 @@
 "use client";
 import { useState } from 'react';
 import { Dialog } from '@/components/ui/dialog'; // Assuming Dialog is imported from your Shadcn UI component library
-import { FaComments } from 'react-icons/fa'; // Importing a chat icon from React Icons
+import { FaComments, FaRobot } from 'react-icons/fa'; // Importing a chat icon from React Icons
 import { Button } from '@/components/ui/button'; // Assuming you have a Button component
 import { GoogleGenAI } from "@google/genai";
 
@@ -53,7 +53,7 @@ const Chatbot = () => {
         }
     }
 
-    // Simulate bot typing by gradually showing the message
+    // Simulate bot typing by gradually showing the message with random delays
     const simulateBotResponse = (message: string) => {
         setBotTyping(true);
         let index = 0;
@@ -77,7 +77,7 @@ const Chatbot = () => {
                 clearInterval(interval);
                 setBotTyping(false);
             }
-        }, 100); // Adjust typing speed here
+        }, Math.random() * 150 + 80); // Randomize typing speed between 80ms and 230ms
     };
 
     const sendMessage = async () => {
@@ -126,10 +126,23 @@ const Chatbot = () => {
                         {/* Chat History */}
                         <div className="space-y-4 overflow-y-auto h-60">
                             {chatHistory.map((chat, index) => (
-                                <div key={index} className={chat.sender === 'user' ? 'text-right' : 'text-left'}>
-                                    <p className={`p-2 rounded-md inline-block ${chat.sender === 'user' ? 'bg-blue-200' : 'bg-gray-200'}`}>
-                                        {formatMessage(chat.message)} {/* Format message to make links clickable */}
-                                    </p>
+                                <div key={index} className={`flex ${chat.sender === 'user' ? 'justify-end' : 'justify-start'}`}>
+                                    <div className="flex items-center space-x-2">
+                                        {/* Avatar for user messages */}
+                                        {chat.sender === 'user' ? (
+                                            <div className="bg-blue-200 rounded-full w-8 h-8 flex items-center justify-center">
+                                                <span className="text-white">U</span>
+                                            </div>
+                                        ) : (
+                                            <div className="bg-gray-200 rounded-full w-8 h-8 flex items-center justify-center">
+                                                <FaRobot className="text-gray-600" />
+                                            </div>
+                                        )}
+                                        <p className={`p-2 rounded-md inline-block ${chat.sender === 'user' ? 'bg-blue-200' : 'bg-gray-200'} 
+                                        ${botTyping && chat.sender === 'bot' ? "typing-effect" : ""}`}> {/* Apply typing effect class */}
+                                            {formatMessage(chat.message)} {/* Format message to make links clickable */}
+                                        </p>
+                                    </div>
                                 </div>
                             ))}
                         </div>

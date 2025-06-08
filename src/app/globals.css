@@ -131,3 +131,101 @@
     display: none; /* Chrome, Safari, and Opera */
   }
 }
+
+
+
+/* Typing effect - blinking cursor */
+.typing-effect {
+    display: inline-block;
+    position: relative;
+}
+
+.typing-effect::after {
+    content: "|"; /* Blinking cursor */
+    position: absolute;
+    right: 0;
+    animation: blink 0.7s step-end infinite;
+}
+
+@keyframes blink {
+    50% {
+        opacity: 0;
+    }
+}
+
+/* Styling chat bubbles */
+.bg-blue-200 {
+    background-color: #e0f7fa;
+}
+
+.bg-gray-200 {
+    background-color: #f0f0f0;
+}
+
+.p-2 {
+    padding: 10px;
+}
+
+.rounded-md {
+    border-radius: 10px;
+}
+
+.w-8 {
+    width: 32px;
+}
+
+.h-8 {
+    height: 32px;
+}
+
+.text-white {
+    color: #fff;
+}
+
+.text-gray-600 {
+    color: #4b4b4b;
+}
+
+.text-blue-600 {
+    color: #1e88e5;
+}
+
+.space-y-4 {
+    margin-bottom: 1rem;
+}
+
+.flex {
+    display: flex;
+}
+
+.items-center {
+    align-items: center;
+}
+
+.space-x-2 {
+    margin-left: 10px;
+}
+
+.overflow-y-auto {
+    overflow-y: auto;
+}
+
+.h-60 {
+    height: 300px;
+}
+
+.text-right {
+    text-align: right; /* User messages on the right */
+}
+
+.text-left {
+    text-align: left; /* Bot messages on the left */
+}
+
+.justify-end {
+    justify-content: flex-end; /* Align user messages to the right */
+}
+
+.justify-start {
+    justify-content: flex-start; /* Align bot messages to the left */
+}

@@ -18,7 +18,7 @@ export default function Navbar() {
       <Link href="/" className="flex items-center space-x-2 flex-shrink-0">
         <PhoneCall className="h-6 w-6 text-brand-blue" />
         <span className="text-2xl font-bold text-foreground">
-          Small<span className="text-brand-blue">.ai</span>
+          Smalls<span className="text-brand-blue">.ai</span>
         </span>
       </Link>
 
