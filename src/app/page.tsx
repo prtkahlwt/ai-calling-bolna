@@ -1,6 +1,6 @@
 // src/app/page.tsx
 import Image from "next/image";
-import Link from "next/link"; 
+import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import ContactButtons from "@/components/ui/ContactButtons";
@@ -9,31 +9,25 @@ import ContactButtons from "@/components/ui/ContactButtons";
 export default function HomePage() {
   return (
     <div className="flex flex-col items-center bg-background text-foreground font-[var(--font-geist-sans)]">
-      
+
       {/* Hero Section - ID for "Home" link */}
       <section id="home" className="relative w-full py-20 md:py-32 overflow-hidden px-4">
-        {/*
-          CHANGED:
-          - max-w-4xl changed to max-w-7xl to provide more space for side-by-side content.
-          - Added flex, flex-col (for mobile stacking), md:flex-row (for desktop side-by-side),
-            items-center, justify-between, and gap classes for layout.
-        */}
         <div className="container mx-auto max-w-7xl z-10 relative flex flex-col md:flex-row items-center justify-between gap-8 md:gap-16">
           {/* Left side: Text content (Current H1, P, Buttons) */}
-          <div className="text-center md:text-left md:w-1/2"> {/* Added md:text-left and md:w-1/2 for layout */}
+          <div className="text-center md:text-left md:w-1/2">
             <h1 className="text-4xl md:text-6xl font-bold leading-tight mb-6">
               Smart AI Solutions <span className="text-primary">Specialised in AI Calling</span>
             </h1>
-            <p className="text-lg md:text-xl text-muted-foreground mb-10 max-w-2xl mx-auto md:mx-0"> {/* Added md:mx-0 for text alignment */}
+            <p className="text-lg md:text-xl text-muted-foreground mb-10 max-w-2xl mx-auto md:mx-0">
               Leverage intelligent AI agents to handle sales, support, and surveys efficiently, 24/7, at scale.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start"> {/* Added md:justify-start for button alignment */}
+            <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
               <Link
                 href="https://calendly.com/ap2303898" // <-- IMPORTANT: Replace with your actual Calendly link
                 target="_blank"
                 rel="noopener noreferrer"
                 passHref>
-                <Button size="lg" className="px-8 py-6 text-lg">
+                <Button size="lg" className="px-8 py-6 text-lg bg-primary text-primary-foreground shadow hover:bg-primary/90">
                   Get Started for Free
                 </Button>
               </Link>
@@ -46,14 +40,6 @@ export default function HomePage() {
           </div>
 
           {/* Right side: AI Image */}
-          {/*
-            NEW:
-            - This div takes md:w-1/2 on larger screens.
-            - Uses flex justify-center/md:justify-end to position the image.
-            - Image component with src, alt, width/height for optimization.
-            - `filter grayscale` applies the black and white effect.
-            - `priority` for better loading performance.
-          */}
           <div className="md:w-1/2 flex justify-center md:justify-end">
             <Image
               src="/ai.png" // Path to your image, assuming it's in the public folder
@@ -126,13 +112,28 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* NEW: About Section */}
-        <section id="about" className="w-full py-20 text-center px-4">
-          <div className="container mx-auto max-w-4xl">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">About Smalls.ai</h2>
-            <p className="text-lg text-muted-foreground">
-              We are a team of innovators dedicated to pushing the boundaries of artificial intelligence in communication. Our mission is to provide businesses with powerful, scalable, and intuitive AI calling solutions that drive growth and enhance customer engagement.
-            </p>
+        {/* NEW: About Section - MODIFIED FOR IMAGE */}
+        <section id="about" className="w-full py-20 px-4"> {/* Removed bg-muted as it's not in the target image */}
+          <div className="container mx-auto max-w-7xl flex flex-col md:flex-row items-center justify-between gap-8 md:gap-16">
+            {/* Left side: About Image */}
+            <div className="md:w-1/2 flex justify-center md:justify-start"> {/* Adjusted justify for left alignment */}
+              <Image
+                src="/about.jpg" // Path to your about image, assuming it's in the public folder
+                alt="Illustration of a person interacting with virtual elements"
+                width={400} // Base width for Next.js Image optimization (adjust as needed)
+                height={400} // Base height for Next.js Image optimization (adjust as needed)
+                className="w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl object-contain filter grayscale" // Added grayscale filter
+                loading="lazy" // Not above the fold, so lazy load
+              />
+            </div>
+
+            {/* Right side: About Text Content */}
+            <div className="text-center md:text-left md:w-1/2"> {/* Adjusted text alignment and width */}
+              <h2 className="text-3xl md:text-4xl font-bold mb-6">About Smalls.ai</h2>
+              <p className="text-lg text-muted-foreground">
+                We are a team of innovators dedicated to pushing the boundaries of artificial intelligence in communication. Our mission is to provide businesses with powerful, scalable, and intuitive AI calling solutions that drive growth and enhance customer engagement.
+              </p>
+            </div>
           </div>
         </section>
 
