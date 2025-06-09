@@ -8,8 +8,8 @@ import { PhoneCall } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const phoneNumbers = [
-  { display: "+91 89203 26224", href: "tel:+918920326224" },
   { display: "+91 85708 89528", href: "tel:+918570889528" },
+  // { display: "+91 85708 89528", href: "tel:+918570889528" },
 ];
 
 export default function ContactButtons() {
@@ -56,7 +56,7 @@ export default function ContactButtons() {
 
       {/* "Book a Demo" Button */}
       <Link
-        href="https://calendly.com/ap2303898" // <-- IMPORTANT: Replace with your actual Calendly link
+        href="https://calendly.com/prateekahlawat1223/smalls-ai-demo" // <-- IMPORTANT: Replace with your actual Calendly link
         target="_blank"
         rel="noopener noreferrer"
         className="w-full sm:w-auto"

@@ -24,15 +24,15 @@ export default function TermsAndConditionsPage() {
         </div>
 
         <p className="text-lg leading-relaxed">
-          Welcome to Smalls.ai! These Terms and Conditions ("Terms") govern your access to and use of our services,
-          including any associated software, features, or applications provided by Smalls.ai ("we," "our," or "us").
+          Welcome to Smalls.ai! These Terms and Conditions (&quot;Terms&quot;) govern your access to and use of our services,
+          including any associated software, features, or applications provided by Smalls.ai (&quot;we,&quot; &quot;our,&quot; or &quot;us&quot;).
         </p>
 
         {/* 1. Acceptance of Terms */}
         <section className="space-y-4">
           <h2 className="text-2xl font-bold">1. Acceptance of Terms</h2>
           <p className="leading-relaxed">
-            By accessing or using Smalls.ai's services, you agree to be bound by these Terms and our Privacy Policy.
+            By accessing or using Smalls.ai&apos;s services, you agree to be bound by these Terms and our Privacy Policy.
             If you do not agree, please do not use the service.
           </p>
         </section>
@@ -113,7 +113,7 @@ export default function TermsAndConditionsPage() {
         <section className="space-y-4">
           <h2 className="text-2xl font-bold">9. Disclaimer</h2>
           <p className="leading-relaxed">
-            Smalls.ai is provided "as is." We do not guarantee specific business outcomes or leads.
+            Smalls.ai is provided &quot;as is.&quot; We do not guarantee specific business outcomes or leads.
             We are not liable for indirect or consequential damages.
           </p>
         </section>

@@ -1,8 +1,9 @@
 // src/components/ui/Footer.tsx
 import Link from "next/link";
 import React from "react";
-import { PhoneCall } from "lucide-react"; // For the logo icon
-import { FaLinkedinIn, FaDiscord } from "react-icons/fa"; // For social icons
+// import { PhoneCall } from "lucide-react"; // For the logo icon
+import { FaLinkedinIn } from "react-icons/fa"; // For social icons
+import Image from "next/image";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -13,7 +14,14 @@ export default function Footer() {
         {/* Column 1: Logo and Copyright */}
         <div className="flex flex-col items-start space-y-4">
           <Link href="/" className="flex items-center space-x-2">
-            <PhoneCall className="h-8 w-8 text-brand-blue" /> {/* Using brand-blue for icon */}
+            {/* <PhoneCall className="h-8 w-8 text-brand-blue" /> Using brand-blue for icon */}
+            <Image 
+                    src="/logo.png"  // Public folder path (see below)
+                    alt="Description of image"
+                    width={1000} 
+                    height={1000} 
+                    className="h-10 w-10 text-brand-blue"
+                  />
             <span className="text-3xl font-bold text-foreground"> {/* Ensure logo text is foreground color */}
               Smalls<span className="text-brand-blue">.ai</span>
             </span>
@@ -30,7 +38,7 @@ export default function Footer() {
             >
               <FaLinkedinIn className="h-6 w-6" />
             </a>
-            <a
+            {/* <a
               href="https://discord.gg/your-discord-invite" // Replace with actual Discord invite URL
               target="_blank"
               rel="noopener noreferrer"
@@ -38,7 +46,7 @@ export default function Footer() {
               aria-label="Discord"
             >
               <FaDiscord className="h-6 w-6" />
-            </a>
+            </a> */}
           </div>
         </div>
 
@@ -46,9 +54,24 @@ export default function Footer() {
         <div>
           <h3 className="text-lg font-semibold mb-4 text-foreground">Quick Links</h3> {/* Ensure heading is foreground color */}
           <ul className="space-y-3 text-muted-foreground"> {/* Changed to muted-foreground */}
-            <li>
-              <Link href="/pricing" className="hover:text-foreground transition-colors"> {/* Adjusted hover effect */}
+            {/* <li>
+              <Link href="/pricing" className="hover:text-foreground transition-colors">
                 Pricing
+              </Link>
+            </li> */}
+            <li>
+              <Link href="/#home" className="hover:text-foreground transition-colors"> {/* Adjusted hover effect */}
+                Home
+              </Link>
+            </li>
+             <li>
+              <Link href="/#solutions" className="hover:text-foreground transition-colors"> {/* Adjusted hover effect */}
+                Solutions
+              </Link>
+            </li>
+            <li>
+              <Link href="/#contact" className="hover:text-foreground transition-colors"> {/* Adjusted hover effect */}
+                Contact
               </Link>
             </li>
             <li>
@@ -64,18 +87,18 @@ export default function Footer() {
           <h3 className="text-lg font-semibold mb-4 text-foreground">Support</h3> {/* Ensure heading is foreground color */}
           <ul className="space-y-3 text-muted-foreground"> {/* Changed to muted-foreground */}
             <li>
-              <Link href="/help-desk" className="hover:text-foreground transition-colors"> {/* Placeholder Link, adjusted hover */}
+              <Link href="/#contact" className="hover:text-foreground transition-colors"> {/* Placeholder Link, adjusted hover */}
                 Help Desk
               </Link>
             </li>
             <li>
               <a
-                href="https://discord.gg/your-community-invite" // Replace with actual Discord Community Link
+                href="https://www.linkedin.com/company/smalls-ai/" // Replace with actual Discord Community Link
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:text-foreground transition-colors" // Adjusted hover effect
               >
-                Discord Community
+                LinkedIn
               </a>
             </li>
           </ul>

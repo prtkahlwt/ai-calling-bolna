@@ -46,7 +46,7 @@ export default function LoginPage() {
     try {
       // Send the POST request to the backend for login
       const response = await axios.post(`${BACKEND_URL}/login`, {
-        username: data.email, // Assuming email is the username
+        email: data.email, // Assuming email is the username
         password: data.password,
       });
 

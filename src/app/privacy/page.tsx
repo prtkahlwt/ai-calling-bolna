@@ -95,7 +95,7 @@ export default function PrivacyPolicyPage() {
         <section className="space-y-4">
           <h2 className="text-2xl font-bold">8. Updates to This Policy</h2>
           <p className="leading-relaxed">
-            We may update this Privacy Policy from time to time. We'll notify you of significant changes via email or through the platform.
+            We may update this Privacy Policy from time to time. We will notify you of significant changes via email or through the platform.
           </p>
         </section>
 
@@ -106,7 +106,7 @@ export default function PrivacyPolicyPage() {
             For questions or concerns about your data, contact us at:
           </p>
           <ul className="space-y-1">
-            <li><span className="font-semibold">Email:</span> <a href="mailto:ap2303898@gmail.com" className="text-blue-600 hover:underline">ap2303898@gmail.com</a></li>
+            <li><span className="font-semibold">Email:</span> <a href="mailto:smallsaiwork@gmail.com" className="text-blue-600 hover:underline">smallsaiwork@gmail.com</a></li>
           </ul>
         </section>
       </div>
