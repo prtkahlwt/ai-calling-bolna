@@ -67,34 +67,6 @@ export default function HomePage() {
         </div>
       </section>
 
-        {/* Hero Section - ID for "Home" link */}
-        <section id="home" className="relative w-full py-20 text-center md:py-32 overflow-hidden px-4">
-          <div className="container mx-auto max-w-4xl z-10 relative">
-            <h1 className="text-4xl md:text-6xl font-bold leading-tight mb-6">
-              Smart AI Solutions <span className="text-primary">Specialised in AI Calling</span>
-            </h1>
-            <p className="text-lg md:text-xl text-muted-foreground mb-10 max-w-2xl mx-auto">
-              Leverage intelligent AI agents to handle sales, support, and surveys efficiently, 24/7, at scale.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link
-                href="https://calendly.com/ap2303898" // <-- IMPORTANT: Replace with your actual Calendly link
-                target="_blank"
-                rel="noopener noreferrer"
-                passHref>
-                <Button size="lg" className="px-8 py-6 text-lg">
-                  Get Started for Free
-                </Button>
-              </Link>
-              <Link href="/#solutions" passHref>
-                <Button size="lg" variant="outline" className="px-8 py-6 text-lg">
-                  Learn More
-                </Button>
-              </Link>
-            </div>
-          </div>
-        </section>
-
         {/* Solutions Section - Renamed from "features" */}
         {/* Solutions Section - Updated with crisp, data-driven cards */}
         <section id="solutions" className="w-full py-16 bg-muted px-4">
