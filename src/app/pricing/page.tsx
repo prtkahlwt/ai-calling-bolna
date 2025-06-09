@@ -27,11 +27,11 @@ export default function PricingPage() {
       </h1>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl w-full">
-        {/* Ciyn Starter Card */}
+        {/* Smalls AI Starter Card */}
         <Card className="flex flex-col items-center p-6 border-2 border-border shadow-lg rounded-xl transition-all duration-300 hover:shadow-2xl hover:-translate-y-1">
           <CardHeader className="w-full text-center pb-6">
             <RotateCw className="h-8 w-8 text-brand-blue mb-4 mx-auto" />
-            <CardTitle className="text-3xl font-bold mb-2">Ciyn Starter</CardTitle>
+            <CardTitle className="text-3xl font-bold mb-2">Smalls AI Starter</CardTitle>
             <p className="text-4xl font-extrabold text-foreground">$9.95/mo</p>
           </CardHeader>
           <CardContent className="w-full flex flex-col items-center pt-0">
@@ -50,13 +50,13 @@ export default function PricingPage() {
           </CardContent>
         </Card>
 
-        {/* Ciyn Pro Card (Highlighted) */}
+        {/* Smalls AI Pro Card (Highlighted) */}
         <Card className="flex flex-col items-center p-6 bg-gradient-to-br from-brand-blue-dark to-brand-blue-light border-2 border-brand-blue-dark shadow-xl rounded-xl transform scale-105 transition-all duration-300 hover:scale-105 hover:shadow-2xl">
           <CardHeader className="w-full text-center pb-6">
             {/* FIX: Change icon color to text-black */}
             <RotateCw className="h-8 w-8 text-black mb-4 mx-auto" />
             {/* FIX: Change title color to text-black */}
-            <CardTitle className="text-3xl font-bold mb-2 text-black">Ciyn Pro</CardTitle>
+            <CardTitle className="text-3xl font-bold mb-2 text-black">Smalls AI Pro</CardTitle>
             {/* FIX: Change price color to text-black */}
             <p className="text-4xl font-extrabold text-black">$39.95/mo</p>
           </CardHeader>
@@ -78,11 +78,11 @@ export default function PricingPage() {
           </CardContent>
         </Card>
 
-        {/* Ciyn Enterprise Card */}
+        {/* Smalls AI Enterprise Card */}
         <Card className="flex flex-col items-center p-6 border-2 border-border shadow-lg rounded-xl transition-all duration-300 hover:shadow-2xl hover:-translate-y-1">
           <CardHeader className="w-full text-center pb-6">
             <RotateCw className="h-8 w-8 text-brand-blue mb-4 mx-auto" />
-            <CardTitle className="text-3xl font-bold mb-2">Ciyn Enterprise</CardTitle>
+            <CardTitle className="text-3xl font-bold mb-2">Smalls AI Enterprise</CardTitle>
             <p className="text-4xl font-extrabold text-foreground">Contact Us</p>
           </CardHeader>
           <CardContent className="w-full flex flex-col items-center pt-0">
