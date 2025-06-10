@@ -39,20 +39,23 @@ export default function Navbar() {
     setIsMenuOpen(!isMenuOpen);
   };
 
-  return (
-    // <nav className="sticky top-0 z-50 w-full bg-background border-b border-border py-4 px-6 flex items-center justify-between shadow-sm">
-    <nav className="sticky top-0 z-50 w-full bg-white/30 backdrop-blur-md border-b border-border py-4 px-6 flex items-center justify-between shadow-sm">
+  // Don't render anything until mounted to prevent hydration mismatch
+  if (!mounted) {
+    return null;
+  }
 
+  return (
+    <nav className="sticky top-0 z-50 w-full bg-white/30 backdrop-blur-md border-b border-border py-4 px-6 flex items-center justify-between shadow-sm">
       {/* Logo Section */}
       <Link href="/" className="flex items-center space-x-2 flex-shrink-0">
-        {/* <PhoneCall className="h-6 w-6 text-brand-blue" /> */}
         <Image 
-        src="/logo.png"  // Public folder path (see below)
-        alt="Description of image"
-        width={1000} 
-        height={1000} 
-        className="h-10 w-10 text-brand-blue"
-      />
+          src="/circle-logo.png"
+          alt="Smalls.ai Logo"
+          width={40}
+          height={40}
+          className="h-10 w-10"
+          priority
+        />
         <span className="text-2xl font-bold text-foreground">
           Smalls<span className="text-brand-blue">.ai</span>
         </span>
@@ -73,7 +76,7 @@ export default function Navbar() {
 
       {/* Action Buttons */}
       <div className="hidden md:flex items-center space-x-4 flex-shrink-0">
-        {mounted && isAuthenticated ? (
+        {isAuthenticated ? (
           <Button
             onClick={handleLogout}
             variant="outline"
@@ -118,7 +121,7 @@ export default function Navbar() {
 
       {/* Mobile menu */}
       {isMenuOpen && (
-        <div className="absolute top-full left-0 right-0 bg-background border-b border-border md:hidden">
+        <div className="absolute top-full left-0 right-0 bg-white/30 backdrop-blur-md border-b border-border md:hidden">
           <div className="px-4 py-2 space-y-2">
             {navItems.map((item) => (
               <Link
@@ -130,7 +133,7 @@ export default function Navbar() {
                 {item.label}
               </Link>
             ))}
-            {mounted && isAuthenticated ? (
+            {isAuthenticated ? (
               <Button
                 onClick={() => {
                   handleLogout();
