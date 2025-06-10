@@ -12,6 +12,19 @@ export default function HomePage() {
 
       {/* Hero Section - ID for "Home" link */}
       <section id="home" className="relative w-full py-20 md:py-32 overflow-hidden px-4">
+        {/* Background video */}
+  <video
+    autoPlay
+    loop
+    muted
+    playsInline
+    className="absolute top-0 left-0 w-full h-full object-cover z-0"
+  >
+    <source src="/vdo.mp4" type="video/mp4" />
+    Your browser does not support the video tag.
+  </video>
+    <div className="absolute bottom-0 left-0 w-full h-24 bg-gradient-to-b from-transparent to-muted z-10 pointer-events-none" />
+
         <div className="container mx-auto max-w-7xl z-10 relative flex flex-col md:flex-row items-center justify-between gap-8 md:gap-16">
           {/* Left side: Text content (Current H1, P, Buttons) */}
           <div className="text-center md:text-left md:w-1/2">
@@ -55,7 +68,7 @@ export default function HomePage() {
       </section>
 
 
-<div className="w-full h-8 bg-gradient-to-b from-background to-muted" />
+{/* <div className="w-full h-8 bg-gradient-to-b from-background to-muted" /> */}
 
       {/* Solutions Section - Updated with crisp, data-driven cards */}
 <section id="solutions" className="relative w-full py-16 bg-muted px-4">

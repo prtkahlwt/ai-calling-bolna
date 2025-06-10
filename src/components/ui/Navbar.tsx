@@ -40,7 +40,9 @@ export default function Navbar() {
   };
 
   return (
-    <nav className="sticky top-0 z-50 w-full bg-background border-b border-border py-4 px-6 flex items-center justify-between shadow-sm">
+    // <nav className="sticky top-0 z-50 w-full bg-background border-b border-border py-4 px-6 flex items-center justify-between shadow-sm">
+    <nav className="sticky top-0 z-50 w-full bg-white/30 backdrop-blur-md border-b border-border py-4 px-6 flex items-center justify-between shadow-sm">
+
       {/* Logo Section */}
       <Link href="/" className="flex items-center space-x-2 flex-shrink-0">
         {/* <PhoneCall className="h-6 w-6 text-brand-blue" /> */}
