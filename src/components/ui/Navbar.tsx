@@ -118,7 +118,7 @@ export default function Navbar() {
 
       {/* Mobile menu */}
       {isMenuOpen && (
-        <div className="absolute top-full left-0 right-0 bg-background border-b border-border md:hidden">
+        <div className="absolute top-full left-0 right-0 bg-background border-b border-border md:hidden bg-white/30">
           <div className="px-4 py-2 space-y-2">
             {navItems.map((item) => (
               <Link
