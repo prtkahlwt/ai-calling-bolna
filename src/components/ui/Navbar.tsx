@@ -57,7 +57,7 @@ export default function Navbar() {
           priority
         />
         <span className="text-2xl font-bold text-foreground">
-          Smalls<span className="text-brand-blue">.ai</span>
+          Smalls<span className="text-brand-blue"> AI</span>
         </span>
       </Link>
 
@@ -121,7 +121,7 @@ export default function Navbar() {
 
       {/* Mobile menu */}
       {isMenuOpen && (
-        <div className="absolute top-full left-0 right-0 bg-white/30 backdrop-blur-md border-b border-border md:hidden">
+        <div className="absolute top-full left-0 right-0 bg-white border-b border-border md:hidden">
           <div className="px-4 py-2 space-y-2">
             {navItems.map((item) => (
               <Link
