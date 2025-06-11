@@ -23,10 +23,10 @@ export default function Footer() {
                     className="h-10 w-10 text-brand-blue"
                   />
             <span className="text-3xl font-bold text-foreground"> {/* Ensure logo text is foreground color */}
-              Smalls<span className="text-brand-blue">.ai</span>
+              Smalls<span className="text-brand-blue"> AI</span>
             </span>
           </Link>
-          <p className="text-sm text-muted-foreground">© {currentYear} Smalls.ai.</p> {/* Changed to muted-foreground for lighter text */}
+          <p className="text-sm text-muted-foreground">© {currentYear} Smalls AI.</p> {/* Changed to muted-foreground for lighter text */}
           <p className="text-sm text-muted-foreground">Sales Engagement & Lead Intelligence</p> {/* Changed to muted-foreground */}
           <div className="flex space-x-4 mt-4">
             <a
