@@ -57,7 +57,7 @@ export default function Navbar() {
           priority
         />
         <span className="text-2xl font-bold text-foreground">
-          Smalls<span className="text-brand-blue">.ai</span>
+          Smalls<span className="text-brand-blue"> AI</span>
         </span>
       </Link>
 

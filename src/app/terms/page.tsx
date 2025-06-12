@@ -133,8 +133,8 @@ export default function TermsAndConditionsPage() {
             If you have any questions about these Terms and Conditions, please contact us:
           </p>
           <ul className="space-y-1">
-            <li><span className="font-semibold">Email:</span> <a href="mailto:ap2303898@gmail.com" className="text-blue-600 hover:underline">ap2303898@gmail.com</a></li>
-            <li><span className="font-semibold">Address:</span> Smalls.ai, Hauz Khas, Delhi, India</li>
+            <li><span className="font-semibold">Email:</span> <a href="mailto:smallsaiwork@gmail.com" className="text-blue-600 hover:underline">smallsaiwork@gmail.com</a></li>
+            {/* <li><span className="font-semibold">Address:</span> Smalls.ai, Hauz Khas, Delhi, India</li> */}
           </ul>
         </section>
       </div>
