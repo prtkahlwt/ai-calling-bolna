@@ -18,9 +18,31 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Smalls.ai - AI Calling Solutions", // Updated title
-  description: "Automate your customer outreach with intelligent AI calling agents.", // Updated description
+  title: "Smalls AI - AI Calling Solutions",
+  description: "Automate your customer outreach with intelligent AI calling agents.",
+  openGraph: {
+    title: "Smalls AI - AI Calling Solutions",
+    description: "Automate your customer outreach with intelligent AI calling agents.",
+    url: "https://www.smalls.in",
+    siteName: "Smalls AI",
+  //   images: [
+  //     {
+  //       url: "/og-image.jpg", // Add your OG image path
+  //       width: 1200,
+  //       height: 630,
+  //       alt: "Smalls AI Preview",
+  //     },
+  //   ],
+  //   type: "website",
+  // },
+  // twitter: {
+  //   card: "summary_large_image",
+  //   title: "Smalls AI - AI Calling Solutions",
+  //   description: "Automate your customer outreach with intelligent AI calling agents.",
+  //   images: ["/og-image.jpg"], // Same image or different one
+  },
 };
+
 
 export default function RootLayout({
   children,

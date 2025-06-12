@@ -20,11 +20,11 @@ export default function TermsAndConditionsPage() {
       <div className="container mx-auto max-w-4xl py-12 px-4 space-y-8">
         {/* Effective Date Banner */}
         <div className="border-l-4 border-red-500 bg-red-50 p-4 text-red-800 font-medium">
-          Effective Date: May 1, 2025
+          Effective Date: June 1, 2025
         </div>
 
         <p className="text-lg leading-relaxed">
-          Welcome to Smalls.ai! These Terms and Conditions (&quot;Terms&quot;) govern your access to and use of our services,
+          Welcome to Smalls AI! These Terms and Conditions (&quot;Terms&quot;) govern your access to and use of our services,
           including any associated software, features, or applications provided by Smalls.ai (&quot;we,&quot; &quot;our,&quot; or &quot;us&quot;).
         </p>
 

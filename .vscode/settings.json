@@ -1,0 +1,8 @@
+{
+    "appService.zipIgnorePattern": [
+        "node_modules{,/**}",
+        ".vscode{,/**}"
+    ],
+    "appService.defaultWebAppToDeploy": "/subscriptions/d969ff9d-bb5a-4de6-b69c-1625f8acb612/resourceGroups/smalls-ai/providers/Microsoft.Web/sites/smallsAI",
+    "appService.deploySubpath": "."
+}
