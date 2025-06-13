@@ -31,7 +31,7 @@ export default function HomePage() {
             <h1 className="text-4xl md:text-6xl font-bold leading-tight mb-6">
               Smart AI Solutions <span className="text-primary">Specialised in AI Calling</span>
             </h1>
-            <p className="text-lg md:text-xl text-muted-foreground mb-10 max-w-2xl mx-auto md:mx-0">
+            <p className="text-lg md:text-xl text-muted-foreground mb-10 max-w-2xl mx-auto md:mx-0 text-white">
               Leverage intelligent AI agents to handle sales, support, and surveys efficiently, 24/7, at scale.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
@@ -135,7 +135,7 @@ export default function HomePage() {
           </CardContent>
 
           {/* Hover Overlay */}
-          <div className="absolute inset-0 bg-black/80 text-white flex flex-col justify-center items-center text-center px-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out">
+          <div className="absolute inset-0 bg-black/95 text-white flex flex-col justify-center items-center text-center px-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out">
             <h4 className="text-lg font-bold mb-2">{solution.title}</h4>
             <p className="text-sm">{solution.moreInfo}</p>
           </div>
@@ -154,10 +154,10 @@ export default function HomePage() {
           {/* Left side: About Image */}
           <div className="md:w-1/2 flex justify-center md:justify-start"> {/* Adjusted justify for left alignment */}
             <Image
-              src="/about.jpg" // Path to your about image, assuming it's in the public folder
-              alt="Illustration of a person interacting with virtual elements"
+              src="/robot-bg-remove.png" // Path to your about image, assuming it's in the public folder
+              alt="Illustration of a robot"
               width={400} // Base width for Next.js Image optimization (adjust as needed)
-              height={400} // Base height for Next.js Image optimization (adjust as needed)
+              height={350} // Base height for Next.js Image optimization (adjust as needed)
               className="w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl object-contain filter grayscale" // Added grayscale filter
               loading="lazy" // Not above the fold, so lazy load
             />
@@ -278,7 +278,7 @@ export default function HomePage() {
           </CardContent>
 
           {/* Hover Overlay */}
-          <div className="absolute inset-0 bg-black/80 text-white flex flex-col justify-center items-center text-center px-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out">
+          <div className="absolute inset-0 bg-black/95 text-white flex flex-col justify-center items-center text-center px-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out">
             <h4 className="text-lg font-bold mb-2">{feature.title}</h4>
             <p className="text-sm">{feature.moreInfo}</p>
           </div>

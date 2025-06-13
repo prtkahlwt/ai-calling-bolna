@@ -36,16 +36,23 @@ const Chatbot = () => {
                 model: "gemini-2.0-flash",
                 contents: query,
                 config: {
-                    systemInstruction: `You are a chatbot assistant designed to help users with their queries. Provide concise and helpful responses.
+                    systemInstruction: `You are a chatbot assistant designed to help users with their queries from Smalls AI. Provide concise and helpful responses.
                     About our services - We provide a wide range of AI services specialised in calling agents.
                     example - cold calling, lead generation, customer support, marketing, promotion, confirmation/reminder, Scheduling calls.
                     Our website has more information about our services and how we can assist you.
-                    If the user asks about booking a demo then give him a link - "https://calendly.com/bolna-ai/30min"`,
+                    User can't login because login feature is only available for client for now.
+                    If the user asks about booking a demo then give him a link - "https://calendly.com/prateekahlawat1223/smalls-ai-demo"`,
                 },
             });
 
             const botMessage = response.text || "Sorry, I couldn't process your request."; 
-            simulateBotResponse(botMessage); // Simulate typing effect
+            setBotTyping(true);
+        // let index = 0;
+        setChatHistory((prevHistory) => [
+            ...prevHistory,
+            { sender: 'bot', message: botMessage } // Initialize the bot message
+        ]);
+            // simulateBotResponse(botMessage); // Simulate typing effect
 
         } catch (error) {
             console.log("Error interacting with Gemini API:", error);
@@ -54,31 +61,31 @@ const Chatbot = () => {
     }
 
     // Simulate bot typing by gradually showing the message with random delays
-    const simulateBotResponse = (message: string) => {
-        setBotTyping(true);
-        let index = 0;
-        setChatHistory((prevHistory) => [
-            ...prevHistory,
-            { sender: 'bot', message: '' } // Initialize the bot message
-        ]);
+    // const simulateBotResponse = (message: string) => {
+    //     setBotTyping(true);
+    //     let index = 0;
+    //     setChatHistory((prevHistory) => [
+    //         ...prevHistory,
+    //         { sender: 'bot', message: '' } // Initialize the bot message
+    //     ]);
 
-        const interval = setInterval(() => {
-            if (index < message.length) {
-                setChatHistory((prevHistory) => {
-                    const updatedHistory = [...prevHistory];
-                    updatedHistory[updatedHistory.length - 1] = {
-                        sender: 'bot',
-                        message: message.substring(0, index + 1), // Gradually reveal the message
-                    };
-                    return updatedHistory;
-                });
-                index++;
-            } else {
-                clearInterval(interval);
-                setBotTyping(false);
-            }
-        }, Math.random() * 150 + 80); // Randomize typing speed between 80ms and 230ms
-    };
+    //     const interval = setInterval(() => {
+    //         if (index < message.length) {
+    //             setChatHistory((prevHistory) => {
+    //                 const updatedHistory = [...prevHistory];
+    //                 updatedHistory[updatedHistory.length - 1] = {
+    //                     sender: 'bot',
+    //                     message: message.substring(0, index + 1), // Gradually reveal the message
+    //                 };
+    //                 return updatedHistory;
+    //             });
+    //             index++;
+    //         } else {
+    //             clearInterval(interval);
+    //             setBotTyping(false);
+    //         }
+    //     }, Math.random() * 150 + 80); // Randomize typing speed between 80ms and 230ms
+    // };
 
     const sendMessage = async () => {
         if (!userMessage.trim()) return;
@@ -138,8 +145,7 @@ const Chatbot = () => {
                                                 <FaRobot className="text-gray-600" />
                                             </div>
                                         )}
-                                        <p className={`p-2 rounded-md inline-block ${chat.sender === 'user' ? 'bg-blue-200' : 'bg-gray-200'} 
-                                        ${botTyping && chat.sender === 'bot' ? "typing-effect" : ""}`}> {/* Apply typing effect class */}
+                                        <p className={`p-2 rounded-md inline-block ${chat.sender === 'user' ? 'bg-blue-200' : 'bg-gray-200'}`}>
                                             {formatMessage(chat.message)} {/* Format message to make links clickable */}
                                         </p>
                                     </div>
